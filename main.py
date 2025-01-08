@@ -15,9 +15,7 @@ def menu():
     return input("Escolha uma opção: ")
 
 def parse_valor(valor_str):
-    """
-    Tenta converter uma string para float, substituindo vírgulas por pontos, se necessário.
-    """
+    
     try:
         return float(valor_str.replace(",", "."))
     except ValueError:
@@ -26,7 +24,7 @@ def parse_valor(valor_str):
 def main():
     calculadora = CalculadoraGastos()
 
-    # Carregar dados ao iniciar o programa
+    
     carregar_dados(calculadora)
 
     while True:
@@ -107,7 +105,7 @@ def main():
 
         elif opcao == "0":
             print("Saindo do programa...")
-            # Salvar dados ao sair do programa
+            
             salvar_dados(calculadora)
             break
 

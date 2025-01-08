@@ -2,16 +2,14 @@ import json
 from classes import Despesa, Receita
 
 def salvar_dados(calculadora, categorias_path='data/categorias.json', transacoes_path='data/transacoes.json'):
-    """
-    Salva categorias e transações em arquivos JSON.
-    """
+    
     try:
-        # Salvar categorias
+        
         categorias = calculadora.listar_categorias()
         with open(categorias_path, 'w') as cat_file:
             json.dump(categorias, cat_file)
 
-        # Salvar transações
+        
         transacoes = []
         for transacao in calculadora.obter_transacoes():
             transacoes.append({
@@ -27,17 +25,15 @@ def salvar_dados(calculadora, categorias_path='data/categorias.json', transacoes
         print(f"Erro ao salvar os dados: {e}")
 
 def carregar_dados(calculadora, categorias_path='data/categorias.json', transacoes_path='data/transacoes.json'):
-    """
-    Carrega categorias e transações de arquivos JSON.
-    """
+    
     try:
-        # Carregar categorias
+        
         with open(categorias_path, 'r') as cat_file:
             categorias = json.load(cat_file)
             for nome in categorias:
                 calculadora.adicionar_categoria(nome)
 
-        # Carregar transações
+        
         with open(transacoes_path, 'r') as trans_file:
             transacoes = json.load(trans_file)
             for t in transacoes:
